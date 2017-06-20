@@ -27,7 +27,7 @@ class C_Inscription extends CI_Controller {
 				'prenom'=>$prenom,
 				'password'=>$password,
 				);
-			if	($this->Model_inscription->create_user($data)){
+			if	($this->M_Inscription->create_user($data)){
 				$this->load->view('V_Identification');
 			}
 		}

@@ -70,7 +70,7 @@
             <br>
           </form>
           <div class="button">
-            <a href=<?php echo base_url(). "index.php/Inscription/"?>> Créer un compte</a>
+            <a href=<?php echo base_url(). "index.php/C_Inscription/"?>> Créer un compte</a>
           </div>
           <br>
           <div class="button">
