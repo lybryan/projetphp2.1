@@ -1,20 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Rejoindre extends CI_Controller {
+class C_Rejoindre extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
 		$this->load->library('session');
 		if(!$this->session->has_userdata('mail')) {
-			redirect('identification');
+			redirect('C_Identification');
 		}
 	}
 
 	public function index(){
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-		$this->load->model('Model_rejoindre');
+		$this->load->model('M_Rejoindre');
 
 
 		$this->form_validation->set_rules('name', 'Name', 'trim|required');
@@ -22,8 +22,8 @@ class Rejoindre extends CI_Controller {
 
 
 		if ($this->form_validation->run() === FALSE){
-			$data['liste']=$this->Model_rejoindre->getlisteam();
-			$this->load->view('view_rejoindre',$data);
+			$data['liste']=$this->M_Rejoindre->getlisteam();
+			$this->load->view('V_Rejoindre',$data);
 		}
 
 		else{			
@@ -33,8 +33,8 @@ class Rejoindre extends CI_Controller {
 				'name'=>$name,
 				'psw'=>$psw
 				);
-			if	($this->Model_rejoindre->join_team($membre,$this->session->userdata('mail'))) {
-				redirect('home');
+			if	($this->M_Rejoindre->join_team($membre,$this->session->userdata('mail'))) {
+				redirect('C_Home');
 			}
 
 		}

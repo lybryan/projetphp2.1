@@ -1,7 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-class Connexion_model extends CI_Model{
+class M_Connexion extends CI_Model{
 	public function __construct() {
 		parent::__construct();
 		$this->load->database();

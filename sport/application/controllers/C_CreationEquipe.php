@@ -1,19 +1,19 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class CreationEquipe extends CI_Controller {
+class C_CreationEquipe extends CI_Controller {
 
 	public function index(){
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-		$this->load->model('Model_creation_equipe');
+		$this->load->model('M_CreationEquipe');
 
 		$this->form_validation->set_rules('name', 'Name', 'required');
 		$this->form_validation->set_rules('psw_inscription', 'Psw_inscription', 'required');
 
 
 		if ($this->form_validation->run() === FALSE){
-			$this->load->view('view_creation_equipe');
+			$this->load->view('V_CreationEquipe');
 		}
 		else{
 			$name = $this->input->post('name');
@@ -35,8 +35,8 @@ class CreationEquipe extends CI_Controller {
 				'logo'=>$logo,
 				'photo'=>$photo,
 				);
-			if	($this->Model_creation_equipe->create_team($data_equipe)){
-				$this->load->view('view_home');
+			if	($this->M_CreationEquipe->create_team($data_equipe)){
+				$this->load->view('V_Home');
 			}
 		}
 	}

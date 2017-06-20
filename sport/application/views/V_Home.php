@@ -14,9 +14,9 @@
 <header>
   <nav class="stroke">
     <ul class="Menu">
-      <li class="tittle"><a class="titleNav" href=<?php echo base_url(). "index.php/CreationEquipe/"?>> Créer</a></li>
-      <li class="tittle"><a class="titleNav" href=<?php echo base_url(). "index.php/Rejoindre/"?>>Rejoindre</a></li>
-      <li class="tittle"><a class="titleNav" href=<?php echo base_url(). "index.php/CreationEvenement/"?>>Calendrier</a></li>
+      <li class="tittle"><a class="titleNav" href=<?php echo base_url(). "index.php/C_CreationEquipe/"?>> Créer</a></li>
+      <li class="tittle"><a class="titleNav" href=<?php echo base_url(). "index.php/C_Rejoindre/"?>>Rejoindre</a></li>
+      <li class="tittle"><a class="titleNav" href=<?php echo base_url(). "index.php/C_CreationEvenement/"?>>Calendrier</a></li>
 
     </ul>
   </nav>

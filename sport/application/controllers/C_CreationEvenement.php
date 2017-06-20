@@ -1,18 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class CreationEvenement extends CI_Controller {
+class C_CreationEvenement extends CI_Controller {
 
 	public function index(){
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-		$this->load->model('Model_creation_evenement');
+		$this->load->model('M_CreationEvenement');
 
 		$this->form_validation->set_rules('type', 'Type', 'required');
 
 
 		if ($this->form_validation->run() === FALSE){
-			$this->load->view('view_creation_evenement');
+			$this->load->view('V_CreationEvenement');
 		}
 		else{
 			$type = $this->input->post('type');
@@ -31,8 +31,8 @@ class CreationEvenement extends CI_Controller {
 				);
 
 			if ( (preg_match("/^[0-9]{4}-[0-3][0-9]-[0-1][0-9]$/",$data_evenement['debut'])) && (preg_match("/^[0-9]{4}-[0-3][0-9]-[0-1][0-9]$/",$data_evenement['fin']))) {
-				if	($this->Model_creation_evenement->create_event($data_evenement))
-					$this->load->view('view_home');
+				if	($this->M_CreationEvenement->create_event($data_evenement))
+					$this->load->view('V_Home');
 					
 				else
 					echo 'pb insertion bd';

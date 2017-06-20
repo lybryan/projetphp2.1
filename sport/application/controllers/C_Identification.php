@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Identification extends CI_Controller {
+class C_Identification extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -13,14 +13,14 @@ class Identification extends CI_Controller {
 	public function index(){
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-		$this->load->model('Model_connexion');
+		$this->load->model('M_Connexion');
 
 
 		$this->form_validation->set_rules('mail', 'Mail', 'valid_email');
 
 
 		if ($this->form_validation->run() === FALSE){
-			$this->load->view('view_iden');
+			$this->load->view('V_Identification');
 		}
 
 		else{			
@@ -31,9 +31,9 @@ class Identification extends CI_Controller {
 				'password'=>$password
 				);
 
-			if	($iden=$this->Connexion_model->authentification($connexion)){
+			if	($iden=$this->M_Connexion->authentification($connexion)){
 				$this->session->set_userdata($iden);
-				redirect('home');
+				redirect('C_Home');
 			}
 		}
 	}
